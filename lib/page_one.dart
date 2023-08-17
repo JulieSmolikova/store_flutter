@@ -21,6 +21,7 @@ class PageOne extends StatelessWidget {
             const SizedBox(height: 70,),
             const Text('Store', style: TextStyle(fontStyle: FontStyle.italic, fontSize: 30, fontWeight: FontWeight.bold),),
             const SizedBox(height: 40,),
+
             Consumer<Data>(
                 builder: (context, value, child) {
                   return Column(
@@ -44,6 +45,7 @@ class PageOne extends StatelessWidget {
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   children: [
+
                                     Container(
                                         width: 200,
                                         height: 140,
@@ -52,12 +54,15 @@ class PageOne extends StatelessWidget {
                                           borderRadius: BorderRadius.circular(15),
                                         ),
                                         child: Image.asset('assets/images/${value.items[index][2]}', )),
+
                                     Text(value.items[index][0], style: stile,),
+
                                     Text(value.items[index][1].toString(), style: stile,),
 
                                     GestureDetector(
                                       onTap: () {
-                                        value.addToBasket(value.items[index][0]);},
+                                        value.addToBasket(index);
+                                        },
                                       child: Container(
                                         height: 20,
                                         width: 20,

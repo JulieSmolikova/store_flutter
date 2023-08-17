@@ -12,8 +12,8 @@ class Data extends ChangeNotifier {
 
   List basket = [];
 
-  void addToBasket(String index){
-    basket.add(index);
+  void addToBasket(int index){
+    basket.add(items[index]);
     notifyListeners();
     print(basket);
   }

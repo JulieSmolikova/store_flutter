@@ -43,7 +43,16 @@ class PageTwo extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
-                                  Text(value.basket[index].toString(), style: stile,),
+                                  Container(
+                                      width: 200,
+                                      height: 140,
+                                      clipBehavior: Clip.hardEdge,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15),
+                                      ),
+                                      child: Image.asset('assets/images/${value.basket[index][2]}', )),
+                                  Text(value.basket[index][0], style: stile,),
+                                  Text(value.basket[index][1].toString(), style: stile,),
                                 ],
                               ),
                             );
