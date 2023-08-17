@@ -35,9 +35,9 @@ class PageTwo extends StatelessWidget {
                       ),
 
                       SizedBox(
-                        height: 550,
+                        height: 500,
                         child: ListView.builder(
-                          itemCount: value.items.length,
+                          itemCount: value.basket.length,
                           itemBuilder: (context, index) {
                             return Container(
                               height: 150,
@@ -49,6 +49,7 @@ class PageTwo extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
+
                                   Container(
                                       width: 200,
                                       height: 140,
@@ -57,8 +58,20 @@ class PageTwo extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Image.asset('assets/images/${value.basket[index][2]}', )),
+
                                   Text(value.basket[index][0], style: stile,),
+
                                   Text(value.basket[index][1].toString(), style: stile,),
+
+                                  IconButton(
+                                      onPressed: () {
+                                        value.deleteItem(index, context);
+                                      },
+                                      icon: const Icon(
+                                          Icons.delete_forever_outlined,
+                                          color: Colors.white,
+                                        size: 25,
+                                      ))
                                 ],
                               ),
                             );
