@@ -28,8 +28,14 @@ class PageTwo extends StatelessWidget {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+
                       SizedBox(
-                        height: 600,
+                        height: 50,
+                        child: Text('Total price: ${value.calculatePrice()}', style: stile,),
+                      ),
+
+                      SizedBox(
+                        height: 550,
                         child: ListView.builder(
                           itemCount: value.items.length,
                           itemBuilder: (context, index) {
