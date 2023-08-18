@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:store/model.dart';
 import 'package:store/page_one.dart';
 import 'package:store/page_two.dart';
+import 'package:store/start_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
 
           return const MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: PageOne(),
+            home: StartPage(),
           );
 
         });
