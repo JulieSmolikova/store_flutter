@@ -14,74 +14,93 @@ class PageOne extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         color: Colors.white,
-        padding: const EdgeInsets.all(15),
+        //padding: const EdgeInsets.all(15),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const SizedBox(height: 50,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(
-                  height: 45,
-                  child: Image.asset('assets/icons/menus.png',)),
+            Container(
+              padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.05,
+                    child: Image.asset('assets/icons/menus.png',)),
 
-                const SizedBox(width: 190,),
+                  const SizedBox(width: 190,),
 
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                    builder: (context) {
-                    return const PageTwo();
-                    })); },
-                  child:  Container(
-                      height: 45,
-                      width: 45,
-                      decoration: decor_box,
-                      child: Image.asset('assets/icons/plant.png')),),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                      builder: (context) {
+                      return const PageTwo();
+                      })); },
+                    child:  Container(
+                        height: 45,
+                        width: 45,
+                        decoration: decor_box,
+                        child: Image.asset('assets/icons/plant.png')),),
 
-                 Container(
-                  height: 45,
-                  width: 45,
-                  decoration: decor_box,
-                  padding: const EdgeInsets.all(10),
-                  child: Image.asset('assets/icons/power.png',)),
-              ],
+                   Container(
+                    height: 45,
+                    width: 45,
+                    decoration: decor_box,
+                    padding: const EdgeInsets.all(10),
+                    child: Image.asset('assets/icons/power.png',)),
+                ],
+              ),
             ),
             const SizedBox(height: 15,),
 
-            Column(
-              children: [
-                Row(
-                  children: const [
-                    SizedBox(width: 10,),
-                    Text('Welcome Back...!',
-                    style: TextStyle(
-                        fontFamily: 'Nunito ExtraLight',
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold),)],
-                ),
-                Row(
-                  children: const [
-                    SizedBox(width: 10,),
-                    Text('Change Your Mind with Help Of Plant.',
-                    style: TextStyle(
-                        fontFamily: 'Nunito ExtraLight',
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),)],
-                )
-              ],
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Column(
+                children: [
+                  Row(
+                    children: const [
+                      SizedBox(width: 10,),
+                      Text('Welcome Back...!',
+                      style: TextStyle(
+                          fontFamily: 'Nunito ExtraLight',
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold),)],
+                  ),
+                  Row(
+                    children: const [
+                      SizedBox(width: 10,),
+                      Text('Change Your Mind with Help Of Plant.',
+                      style: TextStyle(
+                          fontFamily: 'Nunito ExtraLight',
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),)],
+                  )
+                ],
+              ),
             ),
 
-            const SizedBox(height: 300,),
+            const SizedBox(height: 25,),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
-                Text('Promotion More Plants', textAlign: TextAlign.start, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500,),),
-              ],
+            Consumer<Data>(builder: (context, value, child) {
+              return Container(
+                height: MediaQuery.of(context).size.height * 0.345,
+                color: Colors.purpleAccent,
+
+              );
+            }),
+
+            const SizedBox(height: 15,),
+
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: const [
+                  Text('Promotion More Plants', textAlign: TextAlign.start, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500,),),
+                ],
+              ),
             ),
             const SizedBox(height: 10,),
 
@@ -90,7 +109,8 @@ class PageOne extends StatelessWidget {
                   return Column(
                     children: [
                       Container(
-                        height: 200,
+                        height: MediaQuery.of(context).size.height * 0.305,
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(15),
@@ -124,7 +144,6 @@ class PageOne extends StatelessWidget {
                                         || value.items[index] == value.items[18]
                                         ? Colors.purpleAccent.withOpacity(0.4)
                                         : Colors.indigo.withOpacity(0.4),
-                                    //color: Colors.purpleAccent.withOpacity(0.4),
                                     borderRadius: BorderRadius.circular(15),
                                   )),
 
@@ -212,9 +231,6 @@ class PageOne extends StatelessWidget {
                     ],
                   );
                 }),
-
-            //const SizedBox(height: 40,),
-
           ],
         ),
 
