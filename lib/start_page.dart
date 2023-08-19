@@ -14,7 +14,7 @@ class StartPage extends StatelessWidget {
           SizedBox(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            child: Image.asset('assets/images/bcgr/3.png', fit: BoxFit.cover,),
+            child: Image.asset('assets/images/bcgr/1.png', fit: BoxFit.cover,),
           ),
 
           Positioned(
@@ -49,6 +49,7 @@ class StartPage extends StatelessWidget {
                     fontFamily: 'Babylonica Regular',
                     fontSize: 60),
                   ),
+                  SizedBox(height: 8,),
                   Text('A Plant You Need To Water It In Order For It To Grow',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -62,7 +63,6 @@ class StartPage extends StatelessWidget {
           ),
 
           Positioned(
-            //right: -230,
             left: -50,
             bottom: -230,
             child: Container(

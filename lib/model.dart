@@ -3,11 +3,26 @@ import 'package:flutter/material.dart';
 class Data extends ChangeNotifier {
 
   List items = [
-    ['Apple', 13, 'apples.jpg',],
-    ['Banana', 25, 'bananas.jpg',],
-    ['Melon', 30, 'melons.jpg',],
-    ['Orange', 15, 'oranges.jpg',],
-    ['Tomato', 18, 'tomatos.jpg',],
+    ['Cherry Blossom', 103.99, '10.png', 'Bonsai Artificial Tree', 4.1],
+    ['Bamboo Artificial', 71.99, '8.png', 'Plant', 4.2],
+    ['Bromeliad Artificial Plant', 81.99, '1.png', 'in Stoneware Planter', 4.8],
+    ['Mixed Areca Palm', 96.99, '5.png', 'Fern & Peacock w/Planter', 4.5],
+    ['Spathiphyllum Artificial', 55.99, '3.png', 'Plant (Real Touch)', 4.9],
+    ['Corn Stalk Dracaena', 196.99, '2.png', 'Silk Plant (Real Touch)', 4.2],
+    ['Bromeliad', 63.99, '4.png', 'with Vase Arrangement', 4.5],
+    ['Croton Artificial', 90.99, '6.png', 'Plant (Real Touch)', 4.0],
+    ['Cymbidium Orchid', 96.99, '7.png', 'Artificial Plant', 4.9],
+    ['Tropical Bromeliad', 63.99, '9.png', 'in Angled Vase Artificial Arrangement', 4.5],
+    ['Boxwood Ball', 99.99, '11.png', 'Topiary', 4.8],
+    ['Cedar Bonsai', 88.99, '12.png', 'Silk Plant', 5.0],
+    ['Areca Palm', 164.99, '13.png', 'w/Vase Silk Plant', 4.2],
+    ['Cherry Blossom', 98.99, '14.png', 'Bonsai Silk Tree', 4.9],
+    ['Dracaena Silk', 87.99, '15.png', 'Plant (Real Touch)', 4.6],
+    ['Bougainvillea', 151.99, '16.png', 'with Urn UV Resistant', 4.8],
+    ['Areca Palm', 125.99, '17.png', 'Silk Tree w/Basket', 3.9],
+    ['Golden Dieffenbachia', 890.99, '18.png', 'w/Decorative Planter', 4.9],
+    ['Cedar Bonsai', 154.99, '19.png', 'Silk Plant', 5.0],
+    ['Large Leaf Philodendron', 77.99, '20.png', 'Silk Plant (Real Touch)', 4.9],
   ];
 
   //basket
