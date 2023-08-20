@@ -85,21 +85,123 @@ class PageOne extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 70,),
+            const SizedBox(height: 75,),
 
             Consumer<Data>(builder: (context, value, child) {
               return Container(
                 height: MediaQuery.of(context).size.height * 0.31,
-                color: Colors.indigo,
+                color: Colors.transparent,
                 child: ListView.builder(
-                  itemCount: value.items.length,
+                  itemCount: value.items_indoor.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return Container(
-                      height: MediaQuery.of(context).size.height * 0.3,
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      color: Colors.white,
-                      margin: const EdgeInsets.all(15),
+                    return Stack(
+                      children: [
+                        const Positioned(
+                            bottom: 70,
+                            right: 0,
+                            child: GlowBox(
+                                width: 80,
+                                height: 70,
+                                colorBox: Colors.indigo,
+                                blurRadius: 70)
+                        ),
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.31,
+                          width: MediaQuery.of(context).size.width * 0.4,
+                          margin: const EdgeInsets.symmetric(horizontal: 20),
+                          clipBehavior: Clip.hardEdge,
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: Stack(
+                            children: [
+                              SizedBox(
+                                  height: MediaQuery.of(context).size.height * 0.31,
+                                  width: MediaQuery.of(context).size.width * 0.4,
+                                  child: Image.asset('assets/images/bcgr/1.png', fit: BoxFit.cover,)),
+                              Positioned(
+                                top: 0,
+                                left: 0,
+                                child: Container(
+                                  height: MediaQuery.of(context).size.height * 0.14,
+                                  width: MediaQuery.of(context).size.width * 0.35,
+                                  margin: const EdgeInsets.all(10),
+                                  clipBehavior: Clip.hardEdge,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10)
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                bottom: MediaQuery.of(context).size.width * 0.3,
+                                left: 5,
+                                child: Container(
+                                  width: 140,
+                                  height: 140,
+                                  color: Colors.transparent,
+                                  child: Image.asset('assets/images/catalog/${value.items_indoor[index][2]}'),
+                                ),
+                              ),
+                              Positioned(
+                                bottom: MediaQuery.of(context).size.height * 0.125,
+                                left: MediaQuery.of(context).size.width * 0.055,
+                                child: Text(value.items_indoor[index][0], style: stile_pink,)),
+                              Positioned(
+                                bottom: MediaQuery.of(context).size.height * 0.105,
+                                left: MediaQuery.of(context).size.width * 0.08,
+                                child: Text(value.items_indoor[index][3], style: stile_sm,)),
+                              Positioned(
+                                  bottom: MediaQuery.of(context).size.height * 0.07,
+                                  left: MediaQuery.of(context).size.width * 0.05,
+                                  child: const Text('\$', style: stile_pink,)),
+                              Positioned(
+                                bottom: MediaQuery.of(context).size.height * 0.07,
+                                left: MediaQuery.of(context).size.width * 0.085,
+                                child: Text(value.items_indoor[index][1].toString(), style: stile_pink,)),
+                              Positioned(
+                                  bottom: MediaQuery.of(context).size.height * 0.071,
+                                  right: MediaQuery.of(context).size.width * 0.115,
+                                  child: const Icon(Icons.star, color: Color(0xffeafaf2ff), size: 18,)),
+                              Positioned(
+                                  bottom: MediaQuery.of(context).size.height * 0.07,
+                                  right: MediaQuery.of(context).size.width * 0.05,
+                                  child: Text(value.items_indoor[index][4].toString(), style: stile_pink,)),
+                              Positioned(
+                                  bottom: MediaQuery.of(context).size.height * 0.02,
+                                  left: MediaQuery.of(context).size.width * 0.08,
+                                  child: Container(
+                                    height: 30,
+                                    width: 30,
+                                    padding: const EdgeInsets.all(5),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Image.asset('assets/icons/basket.png', fit: BoxFit.cover),
+                                  ),
+                              ),
+                              Positioned(
+                                bottom: MediaQuery.of(context).size.height * 0.02,
+                                right: MediaQuery.of(context).size.width * 0.08,
+                                child: Container(
+                                  height: 30,
+                                  width: 30,
+                                  padding: const EdgeInsets.all(4),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Icon(
+                                    Icons.favorite, size: 23, color: KTurq, shadows: [BoxShadow(color: Colors.blue.withOpacity(0.7), blurRadius: 15, spreadRadius: 15)],),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     );
                   }
                 )
@@ -126,25 +228,25 @@ class PageOne extends StatelessWidget {
 
                       const Positioned(
                           bottom: 0,
-                          left: 20,
+                          left: 0,
                           child: GlowBox(
                               width: 80,
                               height: 70,
                               colorBox: Colors.indigo,
                               blurRadius: 200)
                       ),
-                      Positioned(
+                      const Positioned(
                           top: 0,
                           right: 0,
                           child: GlowBox(
                               width: 80,
                               height: 70,
-                              colorBox: Colors.indigo.withOpacity(0.7),
+                              colorBox: Colors.indigo,
                               blurRadius: 200)
                       ),
 
                       Container(
-                        height: MediaQuery.of(context).size.height * 0.305,
+                        height: MediaQuery.of(context).size.height * 0.2985,
                         padding: const EdgeInsets.symmetric(horizontal: 15),
                         decoration: BoxDecoration(
                           color: Colors.transparent,
@@ -253,7 +355,7 @@ class PageOne extends StatelessWidget {
                                             borderRadius: BorderRadius.circular(10),
                                           ),
                                           child: Icon(
-                                            Icons.favorite, size: 23, color: KTurq, shadows: [BoxShadow(color: Colors.blue.withOpacity(0.7), blurRadius: 15,)],),
+                                            Icons.favorite, size: 23, color: KTurq, shadows: [BoxShadow(color: Colors.blue.withOpacity(0.7), blurRadius: 15, spreadRadius: 15)],),
                                         ),
                                       ),
                                     ),

@@ -26,6 +26,14 @@ class Data extends ChangeNotifier {
     ['Large Leaf Philodendron', 77.99, '20.png', 'Silk Plant (Real Touch)', 4.9],
   ];
 
+  List items_indoor = [
+    ['Mixed Areca Palm', 96.99, '5.png', 'Fern & Peacock', 4.5],
+    ['Cherry Blossom', 98.99, '14.png', 'Bonsai Silk Tree', 4.9],
+    ['Bougainvillea', 151.99, '16.png', 'with Urn Resistant', 4.8],
+    ['Spathiphyllum', 55.99, '3.png', 'Artificial Plant', 4.9],
+    ['Areca Palm Silk', 125.99, '17.png', 'Tree w/Basket', 3.9],
+  ];
+
   //basket
   List basket = [];
 
