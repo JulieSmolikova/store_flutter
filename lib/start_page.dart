@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:store/page_one.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({Key? key}) : super(key: key);
@@ -70,7 +71,28 @@ class StartPage extends StatelessWidget {
               color: Colors.transparent,
               child: Image.asset('assets/images/bcgr/2.png', fit: BoxFit.cover,),
             ),
-          )
+          ),
+
+          Positioned(
+            bottom: 100,
+            left: 100,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) {
+                          return const PageOne();
+                        })); },
+              child:  Container(
+                  height: 45,
+                  width: 200,
+                  decoration: const BoxDecoration(
+                    color: Colors.white
+                  ),
+                  child: const Text('Go......... ->')),),
+          ),
+
         ],
       ),
     );

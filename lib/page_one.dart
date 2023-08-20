@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:store/Widgets/glow_box.dart';
 import 'package:store/model.dart';
 import 'package:store/constants.dart';
 import 'package:store/page_two.dart';
@@ -14,7 +15,6 @@ class PageOne extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         color: Colors.white,
-        //padding: const EdgeInsets.all(15),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -25,8 +25,12 @@ class PageOne extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.05,
-                    child: Image.asset('assets/icons/menus.png',)),
+                    height: MediaQuery.of(context).size.height * 0.055,
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.of(context).pop();
+                      },
+                        child: Image.asset('assets/icons/menu.png',))),
 
                   const SizedBox(width: 190,),
 
@@ -81,13 +85,24 @@ class PageOne extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 25,),
+            const SizedBox(height: 70,),
 
             Consumer<Data>(builder: (context, value, child) {
               return Container(
-                height: MediaQuery.of(context).size.height * 0.345,
-                color: Colors.purpleAccent,
-
+                height: MediaQuery.of(context).size.height * 0.31,
+                color: Colors.indigo,
+                child: ListView.builder(
+                  itemCount: value.items.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      height: MediaQuery.of(context).size.height * 0.3,
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      color: Colors.white,
+                      margin: const EdgeInsets.all(15),
+                    );
+                  }
+                )
               );
             }),
 
@@ -106,13 +121,33 @@ class PageOne extends StatelessWidget {
 
             Consumer<Data>(
                 builder: (context, value, child) {
-                  return Column(
+                  return Stack(
                     children: [
+
+                      const Positioned(
+                          bottom: 0,
+                          left: 20,
+                          child: GlowBox(
+                              width: 80,
+                              height: 70,
+                              colorBox: Colors.indigo,
+                              blurRadius: 200)
+                      ),
+                      Positioned(
+                          top: 0,
+                          right: 0,
+                          child: GlowBox(
+                              width: 80,
+                              height: 70,
+                              colorBox: Colors.indigo.withOpacity(0.7),
+                              blurRadius: 200)
+                      ),
+
                       Container(
                         height: MediaQuery.of(context).size.height * 0.305,
                         padding: const EdgeInsets.symmetric(horizontal: 15),
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: Colors.transparent,
                           borderRadius: BorderRadius.circular(15),
                         ),
 
@@ -142,10 +177,10 @@ class PageOne extends StatelessWidget {
                                         || value.items[index] == value.items[14]
                                         || value.items[index] == value.items[16]
                                         || value.items[index] == value.items[18]
-                                        ? Colors.purpleAccent.withOpacity(0.4)
-                                        : Colors.indigo.withOpacity(0.4),
+                                        ? KPink
+                                        : KBlue,
                                     borderRadius: BorderRadius.circular(15),
-                                  )),
+                                  ),),
 
                                     Positioned(
                                       top: 5,
@@ -163,11 +198,11 @@ class PageOne extends StatelessWidget {
                                     ),
 
                                     Positioned(
-                                      top: -10,
+                                      bottom: 8,
                                       left: 5,
                                       child: Container(
-                                          width: 100,
-                                          height: 100,
+                                          width: 95,
+                                          height: 95,
                                           color: Colors.transparent,
                                           child: Image.asset('assets/images/catalog/${value.items[index][2]}', fit: BoxFit.cover, )),
                                     ),
@@ -175,32 +210,32 @@ class PageOne extends StatelessWidget {
                                     Positioned(
                                       top: 13,
                                         left: 120,
-                                        child: Text(value.items[index][0], style: stile,)),
+                                        child: Text(value.items[index][0], style: stile_pink,)),
 
                                     Positioned(
                                         top: 31,
                                         left: 120,
-                                        child: Text(value.items[index][3], style: stile,)),
+                                        child: Text(value.items[index][3], style: stile_sm,)),
 
                                     const Positioned(
                                         bottom: 9,
                                         left: 120,
-                                        child: Text('\$', style: stile,)),
+                                        child: Text('\$', style: stile_pink,)),
 
                                     Positioned(
                                         bottom: 9,
                                         left: 133,
-                                        child: Text(value.items[index][1].toString(), style: stile,)),
+                                        child: Text(value.items[index][1].toString(), style: stile_pink,)),
 
                                     Positioned(
                                         bottom: 10,
                                         left: 200,
-                                        child: Icon(Icons.star, color: Colors.tealAccent[100], size: 18,)),
+                                        child: Icon(Icons.star, color: KTurq, size: 18,)),
 
                                     Positioned(
                                         bottom: 9,
                                         left: 225,
-                                        child: Text(value.items[index][4].toString(), style: stile,)),
+                                        child: Text(value.items[index][4].toString(), style: stile_pink,)),
 
                                     Positioned(
                                       bottom: 33,
@@ -218,7 +253,7 @@ class PageOne extends StatelessWidget {
                                             borderRadius: BorderRadius.circular(10),
                                           ),
                                           child: Icon(
-                                            Icons.favorite, size: 23, color: Colors.tealAccent[100],),
+                                            Icons.favorite, size: 23, color: KTurq, shadows: [BoxShadow(color: Colors.blue.withOpacity(0.7), blurRadius: 15,)],),
                                         ),
                                       ),
                                     ),

@@ -21,7 +21,7 @@ class PageTwo extends StatelessWidget {
           children: [
             const SizedBox(height: 70,),
 
-            const Text('Basket', style: stile,),
+            const Text('Basket', style: stile_pink,),
 
             Consumer<Data>(
                 builder: (context, value, child) {
@@ -31,7 +31,7 @@ class PageTwo extends StatelessWidget {
 
                       SizedBox(
                         height: 50,
-                        child: Text('Total price: ${value.calculatePrice()}', style: stile,),
+                        child: Text('Total price: ${value.calculatePrice()}', style: stile_pink,),
                       ),
 
                       SizedBox(
@@ -59,9 +59,9 @@ class PageTwo extends StatelessWidget {
                                       ),
                                       child: Image.asset('assets/images/${value.basket[index][2]}', )),
 
-                                  Text(value.basket[index][0], style: stile,),
+                                  Text(value.basket[index][0], style: stile_pink,),
 
-                                  Text(value.basket[index][1].toString(), style: stile,),
+                                  Text(value.basket[index][1].toString(), style: stile_pink,),
 
                                   IconButton(
                                       onPressed: () {
