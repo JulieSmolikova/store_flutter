@@ -15,6 +15,18 @@ class PageOne extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
+          //glow_box_top
+          Positioned(
+              top: -15,
+              left: MediaQuery.of(context).size.width * 0.25,
+              child: GlowBox(
+                  width: 160,
+                  height: 80,
+                  colorBox: Colors.indigo.withOpacity(0.7),
+                  blurRadius: 250)
+          ),
+
+          //all_page
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
@@ -24,6 +36,7 @@ class PageOne extends StatelessWidget {
               children: [
                 const SizedBox(height: 50,),
 
+                //top_button
                 Container(
                   padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
                   child: Row(
@@ -50,21 +63,22 @@ class PageOne extends StatelessWidget {
                         child:  Container(
                             height: 45,
                             width: 45,
-                            decoration: decor_box,
+                            decoration: btn_small,
                             child: Image.asset('assets/icons/plant.png')),),
 
                       Container(
                           height: 45,
                           width: 45,
-                          decoration: decor_box,
+                          decoration: btn_small,
                           padding: const EdgeInsets.all(10),
                           child: Image.asset('assets/icons/power.png',)),
                     ],
                   ),
                 ),
 
-                const SizedBox(height: 15,),
+                const SizedBox(height: 8,),
 
+                //text_Welcome_...
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Column(
@@ -75,7 +89,7 @@ class PageOne extends StatelessWidget {
                           Text('Welcome Back...!',
                             style: TextStyle(
                                 fontFamily: 'Nunito ExtraLight',
-                                fontSize: 30,
+                                fontSize: 28,
                                 fontWeight: FontWeight.bold),)],
                       ),
                       Row(
@@ -84,15 +98,134 @@ class PageOne extends StatelessWidget {
                           Text('Change Your Mind with Help Of Plant.',
                             style: TextStyle(
                                 fontFamily: 'Nunito ExtraLight',
-                                fontSize: 18,
+                                fontSize: 17,
                                 fontWeight: FontWeight.bold),)],
                       )
                     ],
                   ),
                 ),
 
-                const SizedBox(height: 75,),
+                //button_all_indoor_outdoor
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.157,
+                  width: MediaQuery.of(context).size.width,
+                  color: Colors.transparent,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: GlowBox(
+                              width: 80,
+                              height: 70,
+                              colorBox: Colors.indigo.withOpacity(0.8),
+                              blurRadius: 200)
+                      ),
+                      Positioned(
+                          top: 0,
+                          left: 0,
+                          child: GlowBox(
+                              width: 80,
+                              height: 70,
+                              colorBox: Colors.purple.withOpacity(0.6),
+                              blurRadius: 200)
+                      ),
 
+                      Positioned(
+                        top: 10,
+                        left: MediaQuery.of(context).size.width * 0.4,
+                        child: GestureDetector(
+                          onTap: (){},
+                          child: Container(
+                            height: 40,
+                            width: 80,
+                            decoration: btn_big,
+                            child: const Center(child: Text('Indoor', style: stile_sm,)),
+                            ),
+                          ),
+                        ),
+                      Positioned(
+                        top: 25,
+                        left: MediaQuery.of(context).size.width * 0.1,
+                        child: GestureDetector(
+                          onTap: (){},
+                          child: Container(
+                            height: 40,
+                            width: 80,
+                            decoration: btn_big,
+                            child: const Center(child: Text('All', style: stile_sm,)),
+                          ),
+                        ),
+                      ),
+
+                      Positioned(
+                        top: 25,
+                        right: MediaQuery.of(context).size.width * 0.1,
+                        child: GestureDetector(
+                          onTap: (){},
+                          child: Container(
+                            height: 40,
+                            width: 80,
+                            decoration: btn_big,
+                            child: const Center(child: Text('Outdoor', style: stile_sm,)),
+                          ),
+                        ),
+                      ),
+                      
+                      Positioned(
+                          top: 65,
+                          left: MediaQuery.of(context).size.width * 0.44,
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 20,
+                                height: 7,
+                                decoration: BoxDecoration(
+                                    color: Colors.grey.withOpacity(0.6),
+                                    borderRadius: BorderRadius.circular(50)
+                                ),
+                              ),
+                              const SizedBox(width: 4,),
+                              Container(
+                                width: 8,
+                                height: 7,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.6),
+                                  borderRadius: BorderRadius.circular(50)
+                                ),
+                              ),
+                              const SizedBox(width: 4,),
+                              Container(
+                                width: 8,
+                                height: 7,
+                                decoration: BoxDecoration(
+                                    color: Colors.grey.withOpacity(0.6),
+                                    borderRadius: BorderRadius.circular(50)
+                                ),
+                              ),
+                            ],
+                          )),
+                      
+                      Positioned(
+                          bottom: 20,
+                          left: MediaQuery.of(context).size.width * 0.06,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('Explore Indoor Plants', style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500, color: Colors.black.withOpacity(0.7))),
+                              SizedBox(width: MediaQuery.of(context).size.width * 0.25,),
+                              Text('Filter', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: Colors.black.withOpacity(0.7))),
+                              SizedBox(width: MediaQuery.of(context).size.width * 0.03,),
+                              SizedBox(
+                                height: 20,
+                                width: 20,
+                                child: Image.asset('assets/icons/filter.png',))
+                            ],))
+
+                    ],),
+                ),
+
+                //list_view_1
                 Consumer<Data>(builder: (context, value, child) {
                   return Container(
                       height: MediaQuery.of(context).size.height * 0.31,
@@ -216,18 +349,20 @@ class PageOne extends StatelessWidget {
 
                 const SizedBox(height: 15,),
 
+                //text_Promotion_More_Plants
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
-                      Text('Promotion More Plants', textAlign: TextAlign.start, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500,),),
+                    children: [
+                      Text('Promotion More Plants', textAlign: TextAlign.start, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: Colors.black.withOpacity(0.7)),),
                     ],
                   ),
                 ),
 
                 const SizedBox(height: 10,),
 
+                //list_view_2
                 Consumer<Data>(
                     builder: (context, value, child) {
                       return Stack(
@@ -253,7 +388,8 @@ class PageOne extends StatelessWidget {
                           ),
 
                           Container(
-                            height: MediaQuery.of(context).size.height * 0.2985,
+                            //height: MediaQuery.of(context).size.height * 0.2985,
+                            height: MediaQuery.of(context).size.height * 0.25,
                             padding: const EdgeInsets.symmetric(horizontal: 15),
                             decoration: BoxDecoration(
                               color: Colors.transparent,
@@ -375,11 +511,10 @@ class PageOne extends StatelessWidget {
                         ],
                       );
                     }),
-              ],
-            ),
-
+            ],),
           ),
 
+          //glass_box
           Positioned(
             bottom: MediaQuery.of(context).size.height * 0.015,
             left: MediaQuery.of(context).size.width * 0.23,
@@ -441,8 +576,6 @@ class PageOne extends StatelessWidget {
           ),
         ],
       )
-
-
     );
   }
 }
