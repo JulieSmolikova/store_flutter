@@ -365,6 +365,7 @@ class PageOne extends StatelessWidget {
                 //list_view_2
                 Consumer<Data>(
                     builder: (context, value, child) {
+                      print(value.items[1][4]);
                       return Stack(
                         children: [
 
@@ -388,7 +389,6 @@ class PageOne extends StatelessWidget {
                           ),
 
                           Container(
-                            //height: MediaQuery.of(context).size.height * 0.2985,
                             height: MediaQuery.of(context).size.height * 0.25,
                             padding: const EdgeInsets.symmetric(horizontal: 15),
                             decoration: BoxDecoration(
@@ -475,12 +475,17 @@ class PageOne extends StatelessWidget {
                                         Positioned(
                                             bottom: 10,
                                             left: 200,
-                                            child: Icon(Icons.star, color: KTurq, size: 18,)),
-
-                                        Positioned(
-                                            bottom: 9,
-                                            left: 225,
-                                            child: Text(value.items[index][4].toString(), style: stile_pink,)),
+                                            child:
+                                            //Icon(Icons.star, color: KTurq, size: 18,)
+                                          Row(
+                                            children: List.generate(5, (i) =>
+                                              Icon(Icons.star,
+                                                size: 18,
+                                                color: i < double.parse((value.items[index][4].toString())).toInt()
+                                                ? KTurq
+                                                : Colors.grey))
+                                          )
+                                        ),
 
                                         Positioned(
                                           bottom: 33,

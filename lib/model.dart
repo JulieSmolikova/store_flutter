@@ -5,7 +5,7 @@ class Data extends ChangeNotifier {
 
   List items = [
     ['Cherry Blossom', 103.99, '10.png', 'Bonsai Artificial Tree', 4.8],
-    ['Bamboo Artificial', 71.99, '8.png', 'Plant', 4.5],
+    ['Bamboo Artificial', 71.99, '8.png', 'Plant',  3.5],
     ['Bromeliad', 63.99, '4.png', 'with Vase Arrangement', 4.7],
     ['Mixed Areca Palm', 96.99, '5.png', 'Fern & Peacock w/Planter', 4.5],
     ['Spathiphyllum Artificial', 55.99, '3.png', 'Plant (Real Touch)', 4.9],
@@ -94,3 +94,16 @@ class Data extends ChangeNotifier {
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
