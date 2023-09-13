@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:store/constants.dart';
 
 class Data extends ChangeNotifier {
 
@@ -44,14 +43,14 @@ class Data extends ChangeNotifier {
   }
 
   //calculate
-  int totalPrice = 0;
+  double totalPrice = 0;
 
   String calculatePrice() {
-    int totalPrice = 0;
+    double totalPrice = 0;
     for (int i = 0; i < basket.length; i++) {
-      totalPrice += int.parse(basket[i][1].toString());
+      totalPrice += double.parse(basket[i][1].toString());
     }
-    return totalPrice.toString();
+    return totalPrice.toStringAsFixed(2);
   }
 
   //delete

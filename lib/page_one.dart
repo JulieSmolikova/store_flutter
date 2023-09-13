@@ -81,10 +81,10 @@ class PageOne extends StatelessWidget {
                 //text_Welcome_...
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Column(
+                  child: const Column(
                     children: [
                       Row(
-                        children: const [
+                        children: [
                           SizedBox(width: 10,),
                           Text('Welcome Back...!',
                             style: TextStyle(
@@ -93,7 +93,7 @@ class PageOne extends StatelessWidget {
                                 fontWeight: FontWeight.bold),)],
                       ),
                       Row(
-                        children: const [
+                        children: [
                           SizedBox(width: 10,),
                           Text('Change Your Mind with Help Of Plant.',
                             style: TextStyle(
@@ -476,7 +476,6 @@ class PageOne extends StatelessWidget {
                                             bottom: 10,
                                             left: 200,
                                             child:
-                                            //Icon(Icons.star, color: KTurq, size: 18,)
                                           Row(
                                             children: List.generate(5, (i) =>
                                               Icon(Icons.star,
